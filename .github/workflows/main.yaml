@@ -56,8 +56,6 @@ jobs:
           popd
           cp build/biber/biber $(dirname $(command -v luatex))
           biber -v
-      - name: l3build install
-        run: l3build install
       - name: Test
         run: |
           pdflatex test
