@@ -19,6 +19,7 @@ tools
 url
 # Dependencies for tests
 babel-english
+biber
 biblatex
 biblatex-apa
 booktabs

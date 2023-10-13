@@ -47,15 +47,6 @@ jobs:
           # List the required TeX Live packages in a separate file to allow reuse in
           # different workflows.
           package_file: .github/tl_packages
-      - name: Get DEV biber
-        run: |
-          mkdir -p build/biber
-          pushd build/biber
-          wget -nc $BIBERURL
-          tar -xzvf $(basename $BIBERURL)
-          popd
-          cp build/biber/biber $(dirname $(command -v luatex))
-          biber -v
       - name: Test
         run: |
           pdflatex test
