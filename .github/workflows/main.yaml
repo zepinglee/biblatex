@@ -9,7 +9,7 @@ on:
     branches:
       - main
 
-concurrency: 
+concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
 
@@ -56,5 +56,11 @@ jobs:
           popd
           cp build/biber/biber $(dirname $(command -v luatex))
           biber -v
-      - name: Run l3build
-        run: l3build check -q -H
+      - name: l3build install
+        run: l3build install
+      - name: Test
+        run: |
+          pdflatex test
+          biber test
+          pdflatex test
+          pdflatex test
